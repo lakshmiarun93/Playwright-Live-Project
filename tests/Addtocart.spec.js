@@ -11,24 +11,19 @@ await page.goto('https://demoblaze.com/')
 }
 )
 
-test("valid login",async({page})=>
-
+test.only('add to cart',async({page})=>
 {
 const ValidOb = new login(page);
 await ValidOb.LoginLinkClick()
 await ValidOb.enterUN(validUN)
 await ValidOb.enterPass(validPass)
 await ValidOb.login()
-//await expect(page.locator("#nameofuser")).toContainText("Welcome "+validUN)
-
-}
-);
-test('add to cart',async({page})=>
-{
 const obj = new Addtocart(page)
 await obj.selectproduct()
 page.on('dialog',dialog=>dialog.accept())
 await obj.addtocart()
+await page.pause()
+await expect(page.locator("#nameofuser")).toContainText("Welcome "+validUN)
 
 
 }

@@ -20,6 +20,8 @@ await obj.clicklink()
 await obj.enterusername(username)
 await obj.enterpassword(password)
 await obj.submitclick()
+//await page.pause()
+await expect(page.locator('xpath=//a[@id="login2"]')).toContainText("Log in")
 
 })
 
@@ -31,6 +33,8 @@ await obj.clicklink()
 await obj.enterusername(username)
 await obj.enterpassword(password)
 await obj.closesubmit()
+//await page.pause()
+await expect(page.locator('xpath=//a[@id="login2"]')).toContainText("Log in")
 
 }
 )

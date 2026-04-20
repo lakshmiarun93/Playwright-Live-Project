@@ -22,6 +22,7 @@ this.month1 = this.page.locator('text = Month:')
 this.year1 = this.page.locator('text = Year:')
 this.purchase = this.page.getByRole('button',{name:'Purchase'})
 this.ok = this.page.getByRole('button',{name:'OK'})
+
     }
 
     async selectproduct()
@@ -59,7 +60,12 @@ this.ok = this.page.getByRole('button',{name:'OK'})
         await this.month1.fill("jan")
         await this.year1.fill("12345")
         await this.purchase.click()
-        await this.ok.click()
+        
 
     }
+    async clickok()
+        {
+await this.ok.click()
+        }
+    
 }
